@@ -2,19 +2,12 @@
 # any errors put out during installation
 
 # CRAN packages
-install.packages("shiny")
 install.packages("gamlss")
 install.packages("magrittr")
 install.packages("dplyr")
 install.packages("tidyr")
 install.packages("ggplot2")
-install.packages("cowplot")
-install.packages("gridExtra")
-install.packages("rmarkdown") # 07.06.2022 if errors that there is no markdown package, try 'install.packages("markdown")'
-install.packages("plotly")
-install.packages("yaml")
-
-
+install.packages("testthat")
 
 # Bioconductor packages
 # Updated 4.7.19 due to error with Bioconductor packages
