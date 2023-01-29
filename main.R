@@ -181,6 +181,10 @@ GenSignalNoise <- function(sangs.filt) {
 }
 
 CalculateTrim <- function(sangs, percent_noise, guide.coord) {
+  # Custom trimming function
+  # Idea: Use the percentage of the noise to the total signal to determine 
+  # regions where the the reads get too noisy, where too noisy is defined by the
+  # threshold, percent_noise 
   signal.noise.df <- GenSignalNoise(sangs)
   sangs.plot <- sangs %>% dplyr::select(index, base.call) 
   sangs.plot %<>% left_join(signal.noise.df)
@@ -206,6 +210,7 @@ CalculateTrim <- function(sangs, percent_noise, guide.coord) {
 }
 
 CreateEditingSpread <- function(editing.df) {
+  # Originally in server.R
   ### Reshape data
   edit.long <- editing.df %>% gather(key = focal.base, value = value, 
                                      A.area:T.area, A.perc:T.perc, T.pval:A.pval) %>%
@@ -229,6 +234,11 @@ CreateAvgBase <- function(sangs.filt) {
 }
 
 CalcEditR <- function(filename, guideseq, p.val.cutoff, default.trim, is.reverse) {
+  # Returns editing information
+  ## table - table of edits across the gRNA sequence
+  ## figure - the editing efficiency plot on the "predicted editing" tab
+  ## trim - the 5' and 3' trimming locations. If default.trim=TRUE, then the 5' is 20 and the 3' is 'Default' 
+  
   input.seq = readsangerseq(filename)
   input.basecalls <- makeBaseCalls(input.seq)
   input.peakampmatrix <- peakAmpMatrix(input.basecalls)
