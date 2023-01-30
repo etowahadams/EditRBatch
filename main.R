@@ -270,7 +270,6 @@ CalcEditR <- function(filename, guideseq, p.val.cutoff, default.trim, is.reverse
   
   # getting params for the different null models
   null.m.params <- GetNullDistModel(sangs.filt, guide.coord)
-  guide <- (DNAString(guideseq))
   editing.df <- CreateEditingDF(guide.coord, guide, sangs, null.m.params)
   edit.spread <- CreateEditingSpread(editing.df)
   avg.base <- CreateAvgBase(sangs.filt)
