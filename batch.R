@@ -3,6 +3,7 @@ library(magrittr)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
+library(readxl)
 
 # Parameters
 key.filename <- "230105_ExampleData_Key.xlsx"
@@ -45,16 +46,26 @@ data.key$results <- apply(data.key, 1, function (x) {
 })
 
 
-
 out <- apply(data.key, 1, function(x) {
   result_table <- x[[6]][[1]]
   if (length(result_table) > 2) {
+    result_table %<>% arrange(guide.position)
     result_table[["5 trim"]] <- x[[6]][[3]][[1]]
     result_table[["3 trim"]] <- x[[6]][[3]][[2]]
     result_table[["Sample ID"]] <- x[[1]]
     result_table[["gRNA"]] <- x[[2]]
+    result_table[["guide sequence"]] <- x[[3]]
+  } else {
+    result_table[[12]] <- x[[1]]
+    result_table[[13]] <- x[[2]]
+    result_table[[14]] <- x[[3]]
   }
   result_table
 })
 
 out <- do.call(rbind, out)
+# redo the order so it makes sense 
+out <- out[, c(14, 13, 12, 5, 8, 1, 2, 3, 4, 6, 7, 9, 10, 11)] 
+
+
+

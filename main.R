@@ -302,6 +302,10 @@ CalcEditR <- function(filename, guideseq, p.val.cutoff, default.trim, is.reverse
           plot.background = element_rect(fill = "transparent",colour = NA)
     ) +
     coord_fixed(1)
+  # count from the other direction if is reverse 
+  if (is.reverse) {
+    edit.spread$guide.position <- max(edit.spread$guide.position) + 1 - edit.spread$guide.position
+  }
   
   return(list(table=edit.spread, figure=edit.chart, trim=trim.values))
 }
