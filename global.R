@@ -1,3 +1,4 @@
+library(shiny)
 library(gamlss)
 library(magrittr)
 library(dplyr)
@@ -308,5 +309,25 @@ CalcEditR <- function(filename, guideseq, p.val.cutoff, default.trim, is.reverse
   }
   
   return(list(table=edit.spread, figure=edit.chart, trim=trim.values))
+}
+
+CalcEditRBatch <- function(file.id, filenames, datapaths, guideseq, reverseYN) {
+  p.val.cutoff <- 0.01
+  default.trim <- FALSE
+  is.reverse <- (reverseYN == "Y")
+  
+  file.matches <- grepl(paste0("^", file.id, "_"), filenames)
+  if (sum(file.matches) != 1) {
+    stop(paste("The provided file ID", file.id, "matched multiple files in the directory or could not be found"))
+  }
+  filename <- datapaths[file.matches]
+  
+  results <- CalcEditR(filename, guideseq, p.val.cutoff, default.trim, is.reverse)
+  if (is.reverse) {
+    results$table %<>% filter(guide.seq == "G") %>% filter(focal.base == "A")
+  } else {
+    results$table %<>% filter(guide.seq == "C") %>% filter(focal.base == "T")
+  }
+  results
 }
 

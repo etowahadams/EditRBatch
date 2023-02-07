@@ -1,6 +1,6 @@
 library(testthat);
 context("EditR ");
-source("main.R");
+source("global.R");
 
 test_that(desc = "Default trimming on example sequencing file", code = {
   

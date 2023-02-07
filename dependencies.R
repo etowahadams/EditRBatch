@@ -7,7 +7,8 @@ install.packages("magrittr")
 install.packages("dplyr")
 install.packages("tidyr")
 install.packages("ggplot2")
-install.packages("testthat")
+install.packages("readxl")
+install.packages("shiny")
 
 # Bioconductor packages
 # Updated 4.7.19 due to error with Bioconductor packages
