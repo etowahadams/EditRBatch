@@ -1,3 +1,3 @@
-# EditR
+# EditRBatch
 
-EditR: an algorithm for simple and cost effective measurement of base editing by quantifying Sanger trace fluorescence
+This is a fork of [EditR](https://github.com/MoriarityLab/EditR) to analyze multiple Sanger sequencing samples at a time. 
