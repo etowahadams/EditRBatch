@@ -291,7 +291,7 @@ CalcEditR <- function(filename, guideseq, p.val.cutoff, default.trim, is.reverse
     ggplot(aes(x = as.factor(index), y = focal.base)) + 
     geom_tile(data = edit.color, aes(fill = adj.perc)) + 
     geom_text(aes(label = round(perc, 0)), angle = 0, size = 5) +   
-    guides(fill = FALSE) + 
+    guides(fill = "none") + 
     scale_fill_continuous(low = "#f7a8a8", high = "#9acdee") + 
     scale_x_discrete(position = "top", labels = editing.df$guide.seq) + 
     labs(x = NULL, y = NULL) + 
@@ -315,7 +315,6 @@ CalcEditRBatch <- function(file.id, filenames, datapaths, guideseq, reverseYN) {
   p.val.cutoff <- 0.01
   default.trim <- FALSE
   is.reverse <- (reverseYN == "Y")
-  
   file.matches <- grepl(paste0("^", file.id, "_"), filenames)
   if (sum(file.matches) != 1) {
     stop(paste("The provided file ID", file.id, "matched multiple files in the directory or could not be found"))
@@ -323,11 +322,5 @@ CalcEditRBatch <- function(file.id, filenames, datapaths, guideseq, reverseYN) {
   filename <- datapaths[file.matches]
   
   results <- CalcEditR(filename, guideseq, p.val.cutoff, default.trim, is.reverse)
-  if (is.reverse) {
-    results$table %<>% filter(guide.seq == "G") %>% filter(focal.base == "A")
-  } else {
-    results$table %<>% filter(guide.seq == "C") %>% filter(focal.base == "T")
-  }
   results
 }
-
