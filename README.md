@@ -23,7 +23,7 @@ This is a fork of [EditR](https://github.com/MoriarityLab/EditR) that can analyz
    git clone https://github.com/your-repo/EditRBatch.git
    cd EditRBatch
    ```
-2. Install dependencies by running:
+2. Open the folder in your R environment, and install dependencies by running:
    ```r
    source("dependencies.R")
    ```
