@@ -1,4 +1,5 @@
 # EditRBatch
+[![DOI](https://zenodo.org/badge/594460101.svg)](https://doi.org/10.5281/zenodo.15060671)
 
 This is a fork of [EditR](https://github.com/MoriarityLab/EditR) that can analyze multiple Sanger sequencing samples at a time.
 
