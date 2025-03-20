@@ -44,3 +44,16 @@ This is a fork of [EditR](https://github.com/MoriarityLab/EditR) that can analyz
     - `Reverse Y/N`: Y or N. Whether the sample was reverse sequenced. If so, the reverse complement of the sequence will be used for analysis.
 2. In the Shiny app, select the .ab1 files you wish to analyze and the metadata file you created.
 3. After the files are uploaded, the app will automatically analyze the samples and output the results in a table.
+
+### Demo
+
+In the `demo_data` folder, we have provided a sample metadata file and .ab1 files for you to test the app with.
+
+If you select the ab1 files in the `demo_data/ab1_files` folder and the `demo_data/230105_ExampleData_Key.xlsx` file, you should see the following output, which shows the results of the EditR analysis for each sample:
+
+![Demo Output](image.png)
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+We retain the original license from the EditR project.
