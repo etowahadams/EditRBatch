@@ -9,7 +9,7 @@ This is a fork of [EditR](https://github.com/MoriarityLab/EditR) that can analyz
 - Dependencies installed via `dependencies.R`. The specific versions can be found in `manifest.json`. 
 
 ### Versions Tested On
-- R version 4.2.3 on macOS
+- R version 4.2.3, using RStudio (Version 2023.03.0+386) on OSX Sonoma. 
 
 ### Required Non-Standard Hardware
 - No special hardware required beyond a standard desktop computer.
@@ -34,7 +34,7 @@ This is a fork of [EditR](https://github.com/MoriarityLab/EditR) that can analyz
    ```
 
 ### Typical Install Time
-- Less than 5 minutes on a standard desktop computer.
+- Less than 10 minutes on a standard desktop computer.
 
 ### Using the Shiny App
 
@@ -52,6 +52,8 @@ In the `demo_data` folder, we have provided a sample metadata file and .ab1 file
 If you select the ab1 files in the `demo_data/ab1_files` folder and the `demo_data/230105_ExampleData_Key.xlsx` file, you should see the following output, which shows the results of the EditR analysis for each sample:
 
 ![Demo Output](image.png)
+
+It should take less than 5 minutes generate the output. 
 
 ## License
 
